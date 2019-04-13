@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>横向到焊条</title>
+</head>
+
+<style>
+    
+    body{
+        margin:0px;
+        padding:0px;
+    }
+
+    ul:li{
+        list-style:none;
+        display: inline;
+    }
+
+    a:link,a:visited{
+        text-decoration: none;color:#000000;
+    }
+    .menu{
+        margin-left:350px;width:1000px;height:30px;
+    }
+    .menu ul{
+        margin:0px;
+        padding:0px;
+    }
+    .menu ul li{
+        border:1px solid;
+        border-radius:6px;
+        border-color: red;
+        position:relative;
+        float:left;
+        list-style:none;
+        width:100px;
+        text-align: center;
+        line-height:30px;
+        /*margin-right:1px;*/
+        background:orange;
+    }
+
+    .menu ul li ul{
+        display:none;
+    }
+
+
+    .menu ul li:hover ul{
+        display:block;
+        position: absolute;
+        left: 0px;
+        top: 30px;}
+
+    #div1{
+        margin-left: 300px;
+    }
+
+
+    
+</style>
+
+<script>
+        window.onload=function(){
+            setInterval(function(){
+                fnDate();
+                },1000);
+            }
+        function fnDate(){
+            var oDiv=document.getElementById("div1");
+            var date=new Date();
+            var year=date.getFullYear();
+            var month=date.getMonth();
+            var data=date.getDate();
+            var hours=date.getHours();
+            var minute=date.getMinutes();
+            var second=date.getSeconds();
+            var time=year+"-"+fnW((month+1))+"-"+fnW(data)+" "+fnW(hours)+":"+fnW(minute)+":"+fnW(second);
+            oDiv.innerHTML=time;
+            }
+        function fnW(str){
+            var num;
+            str>10?num=str:num="0"+str;
+            return num;
+            }
+    </script>
+
+<body>
+
+    <div class="menu">
+    <ul>
+        <li><a href="#">首页</a></li>
+        <li><a href="#">前端技术</a></li>
+        <li><a href="#">编程技术</a>
+            <ul>
+                <li ><a href="#">Java</a></li>
+                <li ><a href="#">Python</a></li>
+                <li ><a href="#">C/C++</a></li>
+           </ul>
+        </li>
+        <li><a href="#">数据库</a></li>
+        <li><a href="#">课堂笔记</a></li>
+        <li><a href="#">课后练习</a></li>
+        <li><a href="#">联系我们</a></li>
+    </ul>
+</div><br/><br/>
+    <div id="div1"></div>
+
+</body>
+</html>
